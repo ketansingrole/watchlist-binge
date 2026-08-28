@@ -3,72 +3,145 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Privacy Policy - Watchlist Binge</title>
-<meta name="description" content="Privacy Policy for Watchlist Binge iOS app">
+<title>Watchlist Binge — Your binge, organized.</title>
+<meta name="description" content="Track movies & shows you want to watch. Your binge, organized. Private by design — no data collected.">
+<meta property="og:title" content="Watchlist Binge">
+<meta property="og:description" content="Track movies & shows you want to watch. Private by design.">
+<meta property="og:image" content="icon.png">
+<link rel="icon" href="icon.png">
 <style>
-  :root { color-scheme: light dark; }
-  body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif; line-height: 1.6; color: #1d1d1f; background: #fff; margin: 0; padding: 0; }
-  .container { max-width: 720px; margin: 0 auto; padding: 40px 20px 60px; }
-  h1 { font-size: 32px; margin: 0 0 8px; letter-spacing: -0.02em; }
-  .subtitle { color: #6e6e73; margin: 0 0 32px; font-size: 14px; }
-  h2 { font-size: 20px; margin: 32px 0 12px; }
-  p, li { font-size: 16px; color: #1d1d1f; }
-  ul { padding-left: 20px; }
-  .card { background: #f5f5f7; border-radius: 12px; padding: 16px 20px; margin: 20px 0; }
-  a { color: #06c; text-decoration: none; }
-  a:hover { text-decoration: underline; }
-  footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid #d2d2d7; font-size: 13px; color: #6e6e73; }
-  @media (prefers-color-scheme: dark) {
-    body { background: #000; color: #f5f5f7; }
-    p, li { color: #f5f5f7; }
-    .card { background: #1d1d1f; }
-    footer { border-color: #333; color: #a1a1a6; }
-    h1, h2 { color: #f5f5f7; }
+  :root { --orange:#FF8C00; --bg:#0A0A0F; --card:#14141A; --text:#F5F5F7; --muted:#A1A1A6; --border:#222; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif; background: var(--bg); color: var(--text); line-height:1.6; -webkit-font-smoothing: antialiased; }
+  a { color: var(--orange); text-decoration:none; }
+  a:hover { text-decoration:underline; }
+  .nav { max-width:1120px; margin:0 auto; padding:18px 20px; display:flex; align-items:center; justify-content:space-between; }
+  .brand { display:flex; align-items:center; gap:12px; font-weight:700; font-size:18px; letter-spacing:-0.02em; }
+  .brand img { width:32px; height:32px; border-radius:8px; }
+  .nav-links { display:flex; gap:20px; font-size:14px; color:var(--muted); }
+  .nav-links a { color:var(--muted); }
+  .nav-links a:hover { color:var(--text); }
+  .hero { max-width:1120px; margin:0 auto; padding:60px 20px 40px; display:grid; grid-template-columns:1.1fr 0.9fr; gap:48px; align-items:center; }
+  .eyebrow { display:inline-flex; align-items:center; gap:8px; background:#1C1C1E; border:1px solid #2C2C2E; color:var(--muted); font-size:13px; padding:6px 12px; border-radius:100px; margin-bottom:20px; }
+  .eyebrow span { width:8px; height:8px; background:#30D158; border-radius:50%; display:inline-block; }
+  h1 { font-size:52px; line-height:0.95; letter-spacing:-0.03em; margin-bottom:16px; }
+  h1 em { font-style:normal; color:var(--orange); }
+  .sub { font-size:18px; color:var(--muted); max-width:520px; margin-bottom:28px; }
+  .cta { display:flex; gap:12px; align-items:center; flex-wrap:wrap; }
+  .store-badge { display:inline-flex; align-items:center; gap:10px; background:#fff; color:#000; padding:12px 20px; border-radius:12px; font-weight:600; font-size:15px; }
+  .store-badge small { display:block; font-size:10px; font-weight:500; opacity:0.6; line-height:1; letter-spacing:0.04em; text-transform:uppercase; }
+  .store-badge:hover { text-decoration:none; background:#f2f2f2; }
+  .sub-cta { font-size:13px; color:var(--muted); margin-top:10px; }
+  .phone-wrap { display:flex; justify-content:center; }
+  .phone { width:300px; height:610px; background: linear-gradient(180deg, #1C1C1E 0%, #000 100%); border:1px solid #2C2C2E; border-radius:48px; padding:14px; box-shadow: 0 40px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.04); position:relative; }
+  .phone-notch { width:110px; height:28px; background:#000; border-radius:0 0 16px 16px; margin:0 auto 16px; }
+  .phone-screen { background:#0A0A0F; border-radius:36px; height:calc(100% - 44px); display:flex; flex-direction:column; align-items:center; justify-content:center; padding:32px 24px; text-align:center; border:1px solid #222; }
+  .phone-screen img { width:120px; height:120px; border-radius:28px; margin-bottom:20px; box-shadow:0 12px 32px rgba(255,140,0,0.25); }
+  .phone-screen h3 { font-size:20px; margin-bottom:6px; }
+  .phone-screen p { font-size:14px; color:var(--muted); }
+  .features { max-width:1120px; margin:0 auto; padding:40px 20px 20px; }
+  .section-title { font-size:12px; letter-spacing:0.12em; text-transform:uppercase; color:var(--orange); font-weight:700; margin-bottom:12px; }
+  .features h2 { font-size:28px; letter-spacing:-0.02em; margin-bottom:32px; max-width:600px; }
+  .grid { display:grid; grid-template-columns:repeat(3, 1fr); gap:20px; }
+  .card { background:var(--card); border:1px solid var(--border); border-radius:20px; padding:24px; }
+  .card-icon { width:40px; height:40px; border-radius:12px; display:grid; place-items:center; background:rgba(255,140,0,0.12); color:var(--orange); font-size:20px; margin-bottom:14px; }
+  .card h3 { font-size:16px; margin-bottom:8px; }
+  .card p { font-size:14px; color:var(--muted); }
+  .trust { max-width:1120px; margin:40px auto; padding:0 20px; }
+  .trust-box { background: linear-gradient(135deg, #1A1200 0%, #14141A 100%); border:1px solid #2A1F00; border-radius:20px; padding:28px; display:flex; gap:24px; align-items:center; justify-content:space-between; flex-wrap:wrap; }
+  .trust-box h3 { font-size:18px; margin-bottom:6px; }
+  .trust-box p { color:var(--muted); font-size:14px; max-width:600px; }
+  .pill { display:inline-flex; align-items:center; gap:8px; background:#fff; color:#000; padding:10px 16px; border-radius:100px; font-weight:600; font-size:14px; white-space:nowrap; }
+  footer { max-width:1120px; margin:40px auto 0; padding:24px 20px 40px; border-top:1px solid var(--border); display:flex; justify-content:space-between; flex-wrap:wrap; gap:16px; font-size:13px; color:var(--muted); }
+  footer a { color:var(--muted); }
+  footer a:hover { color:var(--text); }
+  @media (max-width:900px) {
+    .hero { grid-template-columns:1fr; padding-top:32px; }
+    h1 { font-size:40px; }
+    .grid { grid-template-columns:1fr; }
+    .phone { width:280px; height:580px; }
   }
 </style>
 </head>
 <body>
-<div class="container">
-  <h1>Privacy Policy</h1>
-  <p class="subtitle">Watchlist Binge &mdash; Last updated: August 28, 2026</p>
+  <nav class="nav">
+    <div class="brand"><img src="icon.png" alt="Watchlist Binge icon"> Watchlist Binge</div>
+    <div class="nav-links">
+      <a href="#features">Features</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="mailto:singroleketan@gmail.com">Support</a>
+    </div>
+  </nav>
 
-  <div class="card">
-    <strong>Summary:</strong> Watchlist Binge does not collect, store, or share any personal data. All your watchlist data stays on your device.
-  </div>
+  <section class="hero">
+    <div>
+      <div class="eyebrow"><span></span> Private by design — Data Not Collected</div>
+      <h1>Your binge,<br><em>organized.</em></h1>
+      <p class="sub">Track movies & shows you actually want to watch. Add to your list, mark as watched, and never lose track of what’s next.</p>
+      <div class="cta">
+        <!-- Replace href with your App Store link once live -->
+        <a class="store-badge" href="#" onclick="alert('Add your App Store link here once approved'); return false;">
+          <span style="font-size:22px"></span>
+          <span><small>Download on the</small>App Store</span>
+        </a>
+      </div>
+      <p class="sub-cta">Requires iOS 17+ · Free · No ads · No tracking</p>
+    </div>
+    <div class="phone-wrap">
+      <div class="phone">
+        <div class="phone-notch"></div>
+        <div class="phone-screen">
+          <img src="icon.png" alt="App Icon">
+          <h3>Watchlist Binge</h3>
+          <p>Your personal watchlist.<br>Beautiful, fast, private.</p>
+          <div style="margin-top:20px; width:100%; background:#1C1C1E; border-radius:14px; padding:12px; display:flex; align-items:center; gap:12px; text-align:left; border:1px solid #2C2C2E;">
+            <div style="width:44px; height:44px; background:var(--orange); border-radius:10px; display:grid; place-items:center; color:#fff; font-size:18px;">▶</div>
+            <div><div style="font-size:13px; font-weight:600;">Add anything</div><div style="font-size:12px; color:var(--muted);">Movies, shows, one list.</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <h2>Overview</h2>
-  <p>This Privacy Policy describes how Watchlist Binge ("we", "our", or "us") handles information when you use our iOS app Watchlist Binge.</p>
-  <p>We designed Watchlist Binge to respect your privacy. <strong>We do not collect any personal data.</strong></p>
+  <section class="features" id="features">
+    <div class="section-title">Why Watchlist Binge</div>
+    <h2>Built for how you actually watch.</h2>
+    <div class="grid">
+      <div class="card">
+        <div class="card-icon">☰</div>
+        <h3>One list for everything</h3>
+        <p>Movies and shows in one place. Sort, filter, and pick what to watch next without juggling notes.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">✓</div>
+        <h3>Track progress</h3>
+        <p>Mark watched, keep your progress, and stay motivated. Your data stays on your device.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">◐</div>
+        <h3>Private by default</h3>
+        <p>No accounts, no tracking, no data collection. We don’t have servers that see your list.</p>
+      </div>
+    </div>
+  </section>
 
-  <h2>Data Not Collected</h2>
-  <p>We do not collect, transmit, or store any of the following:</p>
-  <ul>
-    <li>Contact information, location, identifiers, or usage data</li>
-    <li>Diagnostics or analytics data</li>
-    <li>Any data linked to your identity</li>
-  </ul>
-  <p>As stated in App Store Connect &gt; App Privacy: <em>Data Not Collected</em>.</p>
-
-  <h2>Data Stored on Device</h2>
-  <p>Your movies, shows, and watchlist preferences are stored locally on your device using Apple's standard on-device storage (including iCloud sync if you have enabled it in your device settings). This data never goes to our servers &mdash; we don't have servers that receive it.</p>
-
-  <h2>Third-Party Services</h2>
-  <p>Watchlist Binge does not use third-party analytics, advertising, or tracking SDKs.</p>
-  <p>If the app displays information about movies/shows (e.g., titles, posters), that information is fetched from public catalog APIs. Those requests are not associated with your personal identity and we do not send them any personal data.</p>
-
-  <h2>Children's Privacy</h2>
-  <p>Since we do not collect any data, we do not knowingly collect data from children.</p>
-
-  <h2>Changes to This Policy</h2>
-  <p>If we update this policy, we will update the "Last updated" date above and publish the new version at this URL.</p>
-
-  <h2>Contact Us</h2>
-  <p>If you have questions about this policy, contact us at:</p>
-  <p><a href="mailto:singroleketan@gmail.com">singroleketan@gmail.com</a></p>
+  <section class="trust">
+    <div class="trust-box">
+      <div>
+        <h3>🛡️ Data Not Collected</h3>
+        <p>App Store Privacy label says it all. We don’t collect any data — period. Read our plain-English policy.</p>
+      </div>
+      <a class="pill" href="privacy.html">Read Privacy Policy →</a>
+    </div>
+  </section>
 
   <footer>
-    <p>&copy; 2026 Watchlist Binge. This policy is effective as of the date above.</p>
+    <div>© 2026 Watchlist Binge · Made with care in India</div>
+    <div style="display:flex; gap:16px;">
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="mailto:singroleketan@gmail.com">Contact</a>
+      <a href="https://github.com/ketansingrole/Watchlist-Privacy">GitHub</a>
+    </div>
   </footer>
-</div>
 </body>
 </html>

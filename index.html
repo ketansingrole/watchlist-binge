@@ -1,207 +1,245 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Watchlist Binge — Your binge, organized.</title>
-<meta name="description" content="Track movies & shows on iPhone, iPad and Mac. Your binge, organized. Private by design — we collect no data.">
-<meta property="og:title" content="Watchlist Binge">
-<meta property="og:description" content="Track movies & shows you want to watch. Private by design.">
-<meta property="og:image" content="icon.png">
-<link rel="icon" href="icon.png">
-<style>
-  :root { --orange:#FF8C00; --bg:#0A0A0F; --card:#14141A; --text:#F5F5F7; --muted:#A1A1A6; --border:#222; }
-  * { box-sizing:border-box; margin:0; padding:0; }
-  body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif; background: var(--bg); color: var(--text); line-height:1.6; -webkit-font-smoothing: antialiased; }
-  a { color: var(--orange); text-decoration:none; }
-  a:hover { text-decoration:underline; }
-  .nav { max-width:1120px; margin:0 auto; padding:18px 20px; display:flex; align-items:center; justify-content:space-between; }
-  .brand { display:flex; align-items:center; gap:12px; font-weight:700; font-size:18px; letter-spacing:-0.02em; }
-  .brand img { width:32px; height:32px; border-radius:8px; }
-  .nav-links { display:flex; gap:20px; font-size:14px; color:var(--muted); }
-  .nav-links a { color:var(--muted); }
-  .nav-links a:hover { color:var(--text); }
-  .hero { max-width:1120px; margin:0 auto; padding:60px 20px 40px; display:grid; grid-template-columns:1.1fr 0.9fr; gap:48px; align-items:center; }
-  .eyebrow { display:inline-flex; align-items:center; gap:8px; background:#1C1C1E; border:1px solid #2C2C2E; color:var(--muted); font-size:13px; padding:6px 12px; border-radius:100px; margin-bottom:20px; }
-  .eyebrow span { width:8px; height:8px; background:#30D158; border-radius:50%; display:inline-block; }
-  h1 { font-size:52px; line-height:0.95; letter-spacing:-0.03em; margin-bottom:16px; }
-  h1 em { font-style:normal; color:var(--orange); }
-  .sub { font-size:18px; color:var(--muted); max-width:520px; margin-bottom:28px; }
-  .cta { display:flex; gap:12px; align-items:center; flex-wrap:wrap; }
-  .store-badge { display:inline-flex; align-items:center; gap:10px; background:#fff; color:#000; padding:12px 20px; border-radius:12px; font-weight:600; font-size:15px; }
-  .store-badge small { display:block; font-size:10px; font-weight:500; opacity:0.6; line-height:1; letter-spacing:0.04em; text-transform:uppercase; }
-  .store-badge:hover { text-decoration:none; background:#f2f2f2; }
-  .sub-cta { font-size:13px; color:var(--muted); margin-top:10px; }
-  .phone-wrap { display:flex; justify-content:center; }
-  .phone { width:300px; height:610px; background: linear-gradient(180deg, #1C1C1E 0%, #000 100%); border:1px solid #2C2C2E; border-radius:48px; padding:14px; box-shadow: 0 40px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.04); position:relative; }
-  .phone-notch { width:110px; height:28px; background:#000; border-radius:0 0 16px 16px; margin:0 auto 16px; }
-  .phone-screen { background:#0A0A0F; border-radius:36px; height:calc(100% - 44px); display:flex; flex-direction:column; align-items:center; justify-content:center; padding:32px 24px; text-align:center; border:1px solid #222; }
-  .phone-screen img { width:120px; height:120px; border-radius:28px; margin-bottom:20px; box-shadow:0 12px 32px rgba(255,140,0,0.25); }
-  .phone-screen h3 { font-size:20px; margin-bottom:6px; }
-  .phone-screen p { font-size:14px; color:var(--muted); }
-  .features { max-width:1120px; margin:0 auto; padding:40px 20px 20px; }
-  .section-title { font-size:12px; letter-spacing:0.12em; text-transform:uppercase; color:var(--orange); font-weight:700; margin-bottom:12px; }
-  .features h2 { font-size:28px; letter-spacing:-0.02em; margin-bottom:32px; max-width:600px; }
-  .grid { display:grid; grid-template-columns:repeat(3, 1fr); gap:20px; }
-  .card { background:var(--card); border:1px solid var(--border); border-radius:20px; padding:24px; }
-  .card-icon { width:40px; height:40px; border-radius:12px; display:grid; place-items:center; background:rgba(255,140,0,0.12); color:var(--orange); font-size:20px; margin-bottom:14px; }
-  .card h3 { font-size:16px; margin-bottom:8px; }
-  .card p { font-size:14px; color:var(--muted); }
-  .screenshots { max-width:1120px; margin:40px auto 0; padding:0 20px; }
-  .shots { display:grid; grid-template-columns:repeat(3, 1fr); gap:24px; margin-top:28px; }
-  .shot { background:var(--card); border:1px solid var(--border); border-radius:24px; overflow:hidden; padding:12px; }
-  .shot img { width:100%; height:auto; border-radius:18px; display:block; background:#000; object-fit:cover; }
-  .shot.iphone img { aspect-ratio: 1320/2868; }
-  .shot.ipad img { aspect-ratio: 2064/2752; }
-  .shot figcaption { padding:14px 6px 6px; font-size:13px; color:var(--muted); text-align:center; }
-  .shot figcaption strong { color:var(--text); display:block; font-size:14px; margin-bottom:2px; }
-  .howto { max-width:1120px; margin:20px auto; padding:0 20px; font-size:13px; color:var(--muted); text-align:center; }
-  .trust { max-width:1120px; margin:40px auto; padding:0 20px; }
-  .trust-box { background: linear-gradient(135deg, #1A1200 0%, #14141A 100%); border:1px solid #2A1F00; border-radius:20px; padding:28px; display:flex; gap:24px; align-items:center; justify-content:space-between; flex-wrap:wrap; }
-  .trust-box h3 { font-size:18px; margin-bottom:6px; }
-  .trust-box p { color:var(--muted); font-size:14px; max-width:600px; }
-  .pill { display:inline-flex; align-items:center; gap:8px; background:#fff; color:#000; padding:10px 16px; border-radius:100px; font-weight:600; font-size:14px; white-space:nowrap; }
-  footer { max-width:1120px; margin:40px auto 0; padding:24px 20px 40px; border-top:1px solid var(--border); display:flex; justify-content:space-between; flex-wrap:wrap; gap:16px; font-size:13px; color:var(--muted); }
-  footer a { color:var(--muted); }
-  footer a:hover { color:var(--text); }
-  @media (max-width:900px) {
-    .hero { grid-template-columns:1fr; padding-top:32px; }
-    h1 { font-size:40px; }
-    .grid { grid-template-columns:1fr; }
-    .shots { grid-template-columns:1fr; max-width:360px; margin:28px auto 0; }
-    .phone { width:280px; height:580px; }
-  }
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Watchlist Binge — your binge, organized</title>
+  <meta name="description" content="One list for every movie and show you mean to watch. Track each episode, get an alert when the next one airs, and share lists over iCloud. No account, no ads, no tracking.">
+  <meta name="theme-color" content="#0b0b0e">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Watchlist Binge — your binge, organized">
+  <meta property="og:description" content="Track every movie and episode, get new-episode alerts and share lists over iCloud. For iPhone, iPad and Mac.">
+  <meta property="og:image" content="https://ketansingrole.github.io/watchlist-binge/icon.png">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" href="icon.png" type="image/png">
+  <link rel="apple-touch-icon" href="icon.png">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <nav class="nav">
-    <div class="brand"><img src="icon.png" alt="Watchlist Binge icon"> Watchlist Binge</div>
-    <div class="nav-links">
-      <a href="#features">Features</a>
-      <a href="#screenshots">Screenshots</a>
-      <a href="privacy.html">Privacy</a>
-      <a href="#support">Support</a>
-    </div>
-  </nav>
+  <a class="skip" href="#main">Skip to content</a>
 
-  <section class="hero">
-    <div>
-      <div class="eyebrow"><span></span> Private by design — Data Not Collected</div>
-      <h1>Your binge,<br><em>organized.</em></h1>
-      <p class="sub">Track movies & shows you actually want to watch. Add to your list, mark as watched, and never lose track of what’s next.</p>
-      <p class="sub-cta">For iPhone, iPad and Mac · Requires iOS 26 or macOS 26 · Free · No ads · No tracking</p>
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="#top" aria-label="Watchlist Binge home">
+        <img src="icon.png" alt="" width="28" height="28">
+        <span>Watchlist Binge</span>
+      </a>
+      <nav class="nav-links" aria-label="Main">
+        <a class="nav-hide-sm" href="#features">Features</a>
+        <a class="nav-hide-sm" href="privacy.html">Privacy</a>
+        <a class="nav-cta" href="#support">Support</a>
+      </nav>
     </div>
-    <div class="phone-wrap">
-      <div class="phone">
-        <div class="phone-notch"></div>
-        <div class="phone-screen">
-          <img src="icon.png" alt="App Icon">
-          <h3>Watchlist Binge</h3>
-          <p>Your personal watchlist.<br>Beautiful, fast, private.</p>
-          <div style="margin-top:20px; width:100%; background:#1C1C1E; border-radius:14px; padding:12px; display:flex; align-items:center; gap:12px; text-align:left; border:1px solid #2C2C2E;">
-            <div style="width:44px; height:44px; background:var(--orange); border-radius:10px; display:grid; place-items:center; color:#fff; font-size:18px;">▶</div>
-            <div><div style="font-size:13px; font-weight:600;">Add anything</div><div style="font-size:12px; color:var(--muted);">Movies, shows, one list.</div></div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="container">
+        <span class="eyebrow">
+          <span class="eyebrow-tag">Soon</span>
+          Coming to the App Store
+        </span>
+
+        <h1>Your binge,<br><span class="accent">organized.</span></h1>
+
+        <p class="hero-sub">
+          One list for every movie and show you mean to watch. Tick off each episode, get an alert
+          when the next one airs, and share a list with the people you watch with.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn btn-orange" href="#features">
+            See what it does
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+          </a>
+          <a class="btn btn-quiet" href="privacy.html">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 4 6v6c0 4.5 3.4 8.3 8 9 4.6-.7 8-4.5 8-9V6z"/></svg>
+            Data Not Collected
+          </a>
+        </div>
+        <p class="hero-meta">Free for iPhone, iPad and Mac · No account · No ads · No tracking</p>
+
+        <div class="hero-shot">
+          <figure class="shot shot-tablet">
+            <img src="shots/ipad-hero.jpg" width="1800" height="1308" alt="Watchlist Binge on iPad: a grid of posters, each show marked with how much of it has been watched" fetchpriority="high">
+          </figure>
+          <figure class="shot shot-phone">
+            <img src="shots/iphone-06-watchlist-dark.jpg" width="644" height="1400" alt="The same watchlist on iPhone">
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-first" id="episodes" aria-labelledby="episodes-title">
+      <div class="container split reverse">
+        <div class="split-copy section-head">
+          <span class="kicker">EPISODES</span>
+          <h2 id="episodes-title">Know exactly where you left off.</h2>
+          <p>
+            Every show keeps its own progress, season by season. Tick off an episode or a whole
+            season, and see how much is left before you start.
+          </p>
+          <ul class="checklist">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg><span><strong>Progress on every poster</strong>, so the half-finished shows are easy to spot</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg><span><strong>Time remaining</strong> for a season, and the time you'd finish if you started now</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg><span><strong>Mark all watched</strong> for a season or a whole series you caught up on elsewhere</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg><span><strong>Unwatched and Watched</strong> kept apart, with sorting and filters for both</span></li>
+          </ul>
+        </div>
+        <figure class="shot shot-phone">
+          <img src="shots/iphone-03-episodes.jpg" width="644" height="1400" loading="lazy" alt="A season of Succession: five of nine episodes watched, 4 hours 5 minutes remaining, and the time the season would end">
+        </figure>
+      </div>
+    </section>
+
+    <section class="section" id="details" aria-labelledby="details-title">
+      <div class="container split split-copy-first">
+        <div class="split-copy section-head">
+          <span class="kicker">DETAILS</span>
+          <h2 id="details-title">Decide what's next without leaving the app.</h2>
+          <p>
+            Each movie and show has its trailers, cast, ratings and runtime on one page, and you
+            can add it to your list from anywhere you find it.
+          </p>
+          <ul class="checklist">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg><span><strong>Trailers</strong> play right on the page</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg><span><strong>Where to stream it</strong>, so you know before you sit down</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg><span><strong>Cast and crew</strong>, each with their own page of credits</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg><span><strong>Light or dark</strong>, whichever you watch in</span></li>
+          </ul>
+        </div>
+        <figure class="shot shot-phone">
+          <img src="shots/iphone-07-show-detail-dark.jpg" width="644" height="1400" loading="lazy" alt="Succession's page: rating, genres, a trailer and release details">
+        </figure>
+      </div>
+    </section>
+
+    <section class="section" id="features" aria-labelledby="features-title">
+      <div class="container">
+        <div class="section-head center">
+          <span class="kicker">EVERYTHING ELSE</span>
+          <h2 id="features-title">Built for people who watch a lot.</h2>
+        </div>
+        <div class="grid">
+          <article class="card">
+            <div class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg></div>
+            <h3>New-episode alerts</h3>
+            <p>An alert when the next episode of a show you follow airs. Turn it off per show.</p>
+          </article>
+          <article class="card">
+            <div class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><path d="M16 4.5a3.5 3.5 0 0 1 0 7M21.5 20a6.5 6.5 0 0 0-4-6"/></svg></div>
+            <h3>Shared lists</h3>
+            <p>Share a list over iCloud with a partner or friends. You're told who added or watched what.</p>
+          </article>
+          <article class="card">
+            <div class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="18" height="7" rx="1.5"/></svg></div>
+            <h3>Upcoming widget</h3>
+            <p>What's releasing next from your list, right on your Home Screen.</p>
+          </article>
+          <article class="card">
+            <div class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5-5 2 2-5z"/></svg></div>
+            <h3>Discover</h3>
+            <p>What's trending and coming soon, for the country you choose.</p>
+          </article>
+          <article class="card">
+            <div class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg></div>
+            <h3>Stars</h3>
+            <p>Star the actors you follow and jump straight to everything they're in.</p>
+          </article>
+          <article class="card">
+            <div class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h10M4 12h16M4 17h7"/><path d="m17 5 3 2-3 2"/></svg></div>
+            <h3>Siri and Shortcuts</h3>
+            <p>Add a title, mark an episode or open your list with your voice or a Shortcut.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="privacy" aria-labelledby="privacy-title">
+      <div class="container">
+        <div class="section-head">
+          <span class="kicker">PRIVATE</span>
+          <h2 id="privacy-title">Your list is nobody's business.</h2>
+          <p>There's no Watchlist Binge account and no Watchlist Binge server. The App Store privacy label reads Data Not Collected.</p>
+        </div>
+        <div class="trust">
+          <div class="trust-item">
+            <h3>No sign-up</h3>
+            <p>Open the app and start adding. Nothing to register, nothing to remember.</p>
+          </div>
+          <div class="trust-item">
+            <h3>Your iCloud</h3>
+            <p>Your library syncs between your devices through your own iCloud account.</p>
+          </div>
+          <div class="trust-item">
+            <h3>No ads, no tracking</h3>
+            <p>No analytics or advertising code in the app, and nothing sold or shared.</p>
+          </div>
+          <div class="trust-item">
+            <h3>Delete it any time</h3>
+            <p>Settings can wipe the library from a device before you hand it to someone else.</p>
+          </div>
+        </div>
+        <p class="trust-more">The details are in the <a href="privacy.html">privacy policy</a>.</p>
+      </div>
+    </section>
+
+    <section class="section" id="support" aria-labelledby="support-title">
+      <div class="container">
+        <div class="section-head">
+          <span class="kicker">SUPPORT</span>
+          <h2 id="support-title">Need a hand?</h2>
+          <p>Most questions come down to one of these. If yours doesn't, email and you'll hear back from the person who builds the app.</p>
+        </div>
+        <div class="trust trust-3">
+          <div class="trust-item">
+            <h3>Contact</h3>
+            <p>Email <a href="mailto:singroleketan@gmail.com">singroleketan@gmail.com</a> with your device, the app version (Settings › About) and what happened.</p>
+          </div>
+          <div class="trust-item">
+            <h3>iCloud sync</h3>
+            <p>Sign into iCloud on each device to sync your library. Titles added while signed out stay on the device and upload when you sign back in.</p>
+          </div>
+          <div class="trust-item">
+            <h3>Notifications</h3>
+            <p>Turn on alerts for a show in the app. If they don't arrive, allow notifications for Watchlist Binge in your device's Settings.</p>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="features" id="features">
-    <div class="section-title">Why Watchlist Binge</div>
-    <h2>Built for how you actually watch.</h2>
-    <div class="grid">
-      <div class="card">
-        <div class="card-icon">☰</div>
-        <h3>One list for everything</h3>
-        <p>Movies and shows in one place. Sort, filter, and pick what to watch next without juggling notes.</p>
+    <section class="section get" id="get" aria-labelledby="get-title">
+      <div class="container">
+        <img class="get-icon" src="icon.png" alt="" width="96" height="96" loading="lazy">
+        <div class="section-head center">
+          <h2 id="get-title">Coming soon to the App Store.</h2>
+          <p>Free for iPhone, iPad and Mac. Questions or ideas before then? Write in.</p>
+        </div>
+        <div class="hero-actions">
+          <a class="btn btn-orange" href="mailto:singroleketan@gmail.com">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+            Email support
+          </a>
+        </div>
+        <p class="get-foot"><a href="mailto:singroleketan@gmail.com">singroleketan@gmail.com</a></p>
       </div>
-      <div class="card">
-        <div class="card-icon">✓</div>
-        <h3>Track progress</h3>
-        <p>Mark episodes watched and pick up where you left off. Your library syncs through your own iCloud account.</p>
-      </div>
-      <div class="card">
-        <div class="card-icon">◐</div>
-        <h3>Private by default</h3>
-        <p>No sign-up, no tracking, no data collection. We don’t run servers, so we never see your list.</p>
-      </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
-  <section class="screenshots" id="screenshots">
-    <div class="section-title">Screenshots</div>
-    <h2 style="font-size:28px; letter-spacing:-0.02em; max-width:600px;">Made for binge watchers.</h2>
-    <div class="shots">
-      <figure class="shot iphone">
-        <img src="screenshots/iphone-watchlist.png" alt="Watchlist screenshot on iPhone" loading="lazy">
-        <figcaption><strong>Watchlist</strong>Movies and shows with progress & ratings</figcaption>
-      </figure>
-      <figure class="shot iphone">
-        <img src="screenshots/iphone-detail.png" alt="Show details screenshot on iPhone" loading="lazy">
-        <figcaption><strong>Details & Trailers</strong>Cast, trailers, overview & more</figcaption>
-      </figure>
-      <figure class="shot iphone">
-        <img src="screenshots/iphone-episodes.png" alt="Episode tracking screenshot on iPhone" loading="lazy">
-        <figcaption><strong>Episodes</strong>Track every season and episode</figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <section class="screenshots" id="ipad">
-    <div class="section-title">iPad — Big screen, same binge</div>
-    <h2 style="font-size:28px; letter-spacing:-0.02em; max-width:600px;">Optimized for iPad.</h2>
-    <div class="shots">
-      <figure class="shot ipad">
-        <img src="screenshots/ipad-watchlist.png" alt="Watchlist screenshot on iPad" loading="lazy">
-        <figcaption><strong>Watchlist</strong>Your whole library at a glance</figcaption>
-      </figure>
-      <figure class="shot ipad">
-        <img src="screenshots/ipad-detail.png" alt="Movie details screenshot on iPad" loading="lazy">
-        <figcaption><strong>Details</strong>Trailers and info, full screen</figcaption>
-      </figure>
-      <figure class="shot ipad">
-        <img src="screenshots/ipad-episodes.png" alt="Episode tracking screenshot on iPad" loading="lazy">
-        <figcaption><strong>Episodes</strong>Cast, seasons and progress together</figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <section class="features" id="support">
-    <div class="section-title">Support</div>
-    <h2>Need a hand?</h2>
-    <div class="grid">
-      <div class="card">
-        <h3>Contact us</h3>
-        <p>Email <a href="mailto:singroleketan@gmail.com">singroleketan@gmail.com</a> with your device, app version (Settings › About) and what happened.</p>
-      </div>
-      <div class="card">
-        <h3>iCloud sync</h3>
-        <p>Sign into iCloud on each device to sync your library. Titles added while signed out stay on the device and upload when you sign back in.</p>
-      </div>
-      <div class="card">
-        <h3>Notifications</h3>
-        <p>Turn on alerts for a show in the app. If they don’t arrive, allow notifications for Watchlist Binge in your device’s Settings.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="trust">
-    <div class="trust-box">
-      <div>
-        <h3>🛡️ Data Not Collected</h3>
-        <p>We don’t collect your data. Read our plain-English policy to see what stays with you and what goes to iCloud and catalog services.</p>
-      </div>
-      <a class="pill" href="privacy.html">Read Privacy Policy →</a>
-    </div>
-  </section>
-
-  <footer>
-    <div>© 2026 Watchlist Binge · Movie and TV data from <a href="https://www.themoviedb.org">TMDB</a>. This product uses the TMDB API but is not endorsed or certified by TMDB.</div>
-    <div style="display:flex; gap:16px;">
-      <a href="privacy.html">Privacy Policy</a>
-      <a href="#support">Support</a>
-      <a href="https://github.com/ketansingrole/watchlist-binge">GitHub</a>
+  <footer class="footer">
+    <div class="container footer-inner">
+      <a class="brand" href="#top">
+        <img src="icon.png" alt="" width="24" height="24">
+        <span>Watchlist Binge</span>
+      </a>
+      <nav class="footer-links" aria-label="Footer">
+        <a href="privacy.html">Privacy</a>
+        <a href="#support">Support</a>
+      </nav>
+      <p class="footer-credit">
+        Movie and TV data from TMDB. This product uses the TMDB API but is not endorsed or certified by TMDB.
+        Episode schedules from TVmaze.
+      </p>
     </div>
   </footer>
 </body>

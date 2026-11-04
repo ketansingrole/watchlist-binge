@@ -10,11 +10,14 @@ serves `main` as is. The app's own repo is private; this one is public only so P
 
 ## Screenshots
 
-`shots/` holds the App Store 1.3 screenshots, resized to JPEG. They come from the app's
-`AppStoreScreenshotTests` (`scripts/app-store-screenshots/run.sh` in the app repo), whose title
-list avoids Disney-owned and Apple TV+ artwork; App Review rejected a build over Toy Story art,
-and this page is the Support URL, so keep using that set. Show them flat, as the screen itself:
-no device frames or tilt.
+`shots/` holds dark-mode captures from the app's screenshot demo library (`-ScreenshotDemoLibrary`,
+see `scripts/app-store-screenshots` in the app repo). Its title list avoids Disney-owned and
+Apple TV+ artwork; App Review rejected a build over Toy Story art, and this page is the Support
+URL, so keep using that library.
+
+- Dark only: light screens glare on this dark page.
+- Cropped below the status bar. Don't use `simctl status_bar override` (fake 9:41) shots here.
+- Shown flat with a thin edge: no device frames, no tilt, nothing stacked on top of anything else.
 
 When the app is live, swap the "Coming soon" copy for an App Store link
 (`https://apps.apple.com/app/id6778711336`).

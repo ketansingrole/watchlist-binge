@@ -257,13 +257,15 @@ p {
   color: var(--fg-dim);
 }
 
-/* Screenshots sit flat, as the screen itself: no device frame, no tilt. */
+/* Screenshots sit flat, as captured, cropped below the status bar: no device frame, no tilt,
+   and nothing stacked on top of anything else. */
 
 .hero-shot {
-  position: relative;
-  max-width: 1040px;
+  display: flex;
+  align-items: flex-end;
+  gap: 2.5%;
+  max-width: 1100px;
   margin: 64px auto 0;
-  padding-right: 9%;
 }
 
 .shot {
@@ -273,27 +275,17 @@ p {
 .shot img {
   width: 100%;
   border: 1px solid var(--border-strong);
+  border-radius: var(--radius-lg);
   box-shadow: 0 30px 80px -30px rgba(0, 0, 0, 0.9);
 }
 
-.shot-tablet img {
-  border-radius: var(--radius);
-}
-
-/* iPhone screens have rounded corners; match them rather than draw a bezel. */
-.shot-phone img {
-  border-radius: 13.5% / 6.2%;
+.hero-shot .shot-tablet {
+  flex: 1 1 0;
+  min-width: 0;
 }
 
 .hero-shot .shot-phone {
-  position: absolute;
-  right: 0;
-  bottom: -8%;
-  width: 24%;
-}
-
-.hero-shot .shot-phone img {
-  box-shadow: 0 30px 70px -20px rgba(0, 0, 0, 0.95), 0 0 0 6px var(--bg);
+  flex: 0 0 23%;
 }
 
 /* Sections */
@@ -659,7 +651,6 @@ p {
 
   .hero-shot {
     margin-top: 44px;
-    padding-right: 0;
   }
 
   .hero-shot .shot-phone {

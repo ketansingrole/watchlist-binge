@@ -275,8 +275,22 @@ p {
 .shot img {
   width: 100%;
   border: 1px solid var(--border-strong);
-  border-radius: var(--radius-lg);
   box-shadow: 0 30px 80px -30px rgba(0, 0, 0, 0.9);
+}
+
+/* Full screenshots, status bar included, with the corners of the screen they came from. */
+.shot-phone img {
+  border-radius: 12.5% / 5.75%;
+}
+
+.shot-tablet img {
+  border-radius: 14px;
+}
+
+.split .shot-tablet {
+  width: 100%;
+  max-width: 520px;
+  justify-self: center;
 }
 
 .hero-shot .shot-tablet {
@@ -285,7 +299,7 @@ p {
 }
 
 .hero-shot .shot-phone {
-  flex: 0 0 23%;
+  flex: 0 0 20.5%;
 }
 
 /* Sections */

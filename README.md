@@ -16,7 +16,11 @@ Apple TV+ artwork; App Review rejected a build over Toy Story art, and this page
 URL, so keep using that library.
 
 - Dark only: light screens glare on this dark page.
-- Cropped below the status bar. Don't use `simctl status_bar override` (fake 9:41) shots here.
+- Full screens, status bar included, overridden to look like a real device: 9:41, full Wi-Fi
+  and cellular bars, white battery at 100% (`--batteryState discharging --batteryLevel 100`).
+  A charging battery (green with a bolt) looks fake. iPad: same, without the cellular flags.
+- iPad in both orientations: landscape (sidebar) in the hero, portrait for Details.
+- Flat, side by side. Never stack one screenshot on another.
 - Shown flat with a thin edge: no device frames, no tilt, nothing stacked on top of anything else.
 
 When the app is live, swap the "Coming soon" copy for an App Store link

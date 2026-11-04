@@ -1,6 +1,6 @@
 # watchlist-binge
 
-Landing page and privacy policy for the **Watchlist Binge** app (iPhone, iPad and Mac).
+Landing page and privacy policy for the **Watchlist Binge** app (iPhone and iPad).
 
 - Landing: https://ketansingrole.github.io/watchlist-binge/ (App Store Support URL)
 - Privacy: https://ketansingrole.github.io/watchlist-binge/privacy.html (App Store Privacy Policy URL)
